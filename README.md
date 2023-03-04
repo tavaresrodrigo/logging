@@ -1,6 +1,8 @@
 # Demo Flask App for Logging
 
-This repository contains a simple Python app that demonstrates Containers logging using the built-in Python `logging` library. The app logs structured JSON messages to stdout for successful and failed requests, and logs a non-structured message for requests that generate a server error.
+This Flask web application provides a hands-on experience to understand how container logs work by logging jokes in various formats. The logs are displayed in a terminal-like interface in the browser and also sent to the container STDOUT for further analysis. This application utilizes Flask's logging capability to log each joke in JSON format and displays them on the web interface. 
+
+Additionally, the application can be extended to log the jokes in other formats such as CSV, Apache, Nginx, Syslog, and dmesg to further demonstrate how different log formats can be used in containers.
 
 ## Usage
 
@@ -13,25 +15,24 @@ To run the app locally:
 5. Run `python app.py` to start the app.
 6. Open a web browser and navigate to `http://localhost:5000`.
 
-## Endpoints
+To run the app in a Podman container:
 
-The app has currently four endpoints:
+1. Clone this repository to your local machine.
+2. Open a terminal and navigate to the repository directory.
+3. Build the container image `docker build -t [containerImageName]`.
+4. Run the container mapping the port 5000 within the container to your localhost:80 `docker run -d -p 80:5000 --name [containerName] [containerImageName]`.
+5. Open a web browser and navigate to `http://127.0.0.1`.
 
-### /
 
-Displays links to all endpoints available. 
+## Supported Formats
+The application currently supports the following log formats:
 
-### /success
-
-Simulates a successful request by returning a JSON response with a 200 status code. Logs a structured JSON message to stdout for each successful request.
-
-### /failure
-
-Simulates a failed request by returning a JSON response with a 400 status code. Logs a structured JSON message to stdout for each failed request.
-
-### /syslog
-
-Simulates system log messages with a severity level of INFO or higher to be sent to the containers stdout for each syslog request. 
+JSON
+CSV
+Apache
+Nginx
+Syslog
+Dmesg (kernel message buffer)
 
 ## Logging
 

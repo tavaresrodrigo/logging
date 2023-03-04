@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Understanding the Container logs</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='../static/js/script.js') }}"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Understanding containers logs in Openshift</h1>
+    </header>
+    <div class="container">
+      <div class="containerlogs">
+        <div class="terminal-header">
+          <span>>_</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+
+        </div>
+      </div>
+      <div class="buttons">
+        <a href="#" id="json-button">JSON</a>
+        <a href="/csv">CSV</a>
+        <a href="/appache">Apache</a>
+        <a href="/nginx">Nginx</a>
+        <a href="/syslog">Syslog</a>
+        <a href="/dmesg">Dmesg</a>
+      </div>
+    </div>
+  </body>
+</html>
